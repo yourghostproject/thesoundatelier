@@ -1,0 +1,1417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Sound Atelier — Bespoke Soundtracks. Timeless Keepsakes.</title>
+  <meta name="description" content="A London-based production house crafting bespoke soundtracks and limited-edition vinyl artefacts for weddings, milestones and brand moments." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Italiana&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --paper:        #F1ECE2;
+      --paper-deep:   #E8E1D2;
+      --ink:          #1A1614;
+      --ink-soft:     #4A4239;
+      --oxblood:      #5C1A1B;
+      --oxblood-deep: #3E1011;
+      --gold:         #B89968;
+      --gold-soft:    #D4B98A;
+      --rule:         rgba(26, 22, 20, 0.18);
+      --rule-soft:    rgba(26, 22, 20, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 400;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    /* paper grain */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.5;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    /* typography */
+    .serif { font-family: 'Cormorant Garamond', 'Times New Roman', serif; }
+    .italiana { font-family: 'Italiana', serif; }
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+    h1, h2, h3 { margin: 0; font-weight: 400; letter-spacing: -0.01em; }
+    p { margin: 0; }
+
+    /* layout */
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .wrap-narrow { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+    section { position: relative; z-index: 2; }
+
+    /* ---------- nav ---------- */
+    nav.top {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      padding: 22px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s ease, padding 0.3s ease, border-color 0.4s ease;
+      border-bottom: 1px solid transparent;
+    }
+    nav.top.scrolled {
+      background: rgba(241, 236, 226, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 16px 32px;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .brand {
+      font-family: 'Italiana', serif;
+      font-size: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1;
+    }
+    .brand .amp { color: var(--oxblood); font-style: italic; padding: 0 2px; }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--oxblood); }
+    .nav-cta {
+      padding: 10px 22px;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+    .nav-cta:hover { background: var(--ink); color: var(--paper); }
+    @media (max-width: 880px) {
+      .nav-links { display: none; }
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 32px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner { max-width: 1280px; margin: 0 auto; width: 100%; position: relative; z-index: 3; }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .hero-eyebrow .line { flex: 0 0 60px; height: 1px; background: var(--ink); opacity: 0.5; }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(56px, 10vw, 156px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      font-weight: 300;
+      max-width: 13ch;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--oxblood);
+    }
+    .hero-sub {
+      margin-top: 40px;
+      max-width: 46ch;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+    .hero-meta {
+      position: absolute;
+      bottom: 60px;
+      left: 32px;
+      right: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      z-index: 3;
+    }
+    .hero-meta .col {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .scroll-cue {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      letter-spacing: 0.32em;
+    }
+    .scroll-cue .bar {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--ink), transparent);
+      animation: scroll-pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes scroll-pulse {
+      0%, 100% { transform: scaleY(0.3); transform-origin: top; opacity: 0.4; }
+      50%      { transform: scaleY(1);   transform-origin: top; opacity: 1; }
+    }
+
+    /* spinning record in hero */
+    .vinyl {
+      position: absolute;
+      right: -180px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 720px;
+      height: 720px;
+      border-radius: 50%;
+      z-index: 2;
+      animation: spin 24s linear infinite;
+      background:
+        radial-gradient(circle at center, var(--oxblood) 0 9%, var(--ink) 9.5% 10%, transparent 10%),
+        repeating-radial-gradient(circle at center, #0d0a09 0 1.2px, #1a1614 1.2px 2.6px),
+        radial-gradient(circle at center, #1a1614 0%, #0a0807 100%);
+      box-shadow:
+        inset 0 0 80px rgba(0,0,0,0.6),
+        0 30px 80px rgba(0,0,0,0.25);
+      opacity: 0.85;
+    }
+    .vinyl::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.06) 0%, transparent 50%);
+    }
+    @keyframes spin {
+      from { transform: translateY(-50%) rotate(0deg); }
+      to   { transform: translateY(-50%) rotate(360deg); }
+    }
+    @media (max-width: 1100px) {
+      .vinyl { width: 480px; height: 480px; right: -240px; opacity: 0.55; }
+    }
+    @media (max-width: 700px) {
+      .vinyl { width: 360px; height: 360px; right: -200px; top: 18%; transform: none; opacity: 0.4; }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+      }
+      .hero-meta { position: static; flex-direction: column; gap: 24px; margin-top: 80px; align-items: flex-start; }
+    }
+
+    /* ---------- generic section ---------- */
+    .section-pad { padding: 140px 0; }
+    .section-pad-tight { padding: 100px 0; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 80px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .section-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5.5vw, 78px);
+      line-height: 1.02;
+      font-weight: 300;
+      letter-spacing: -0.015em;
+      max-width: 18ch;
+    }
+    .section-head h2 em { font-style: italic; color: var(--oxblood); }
+    .section-num {
+      font-family: 'Italiana', serif;
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      color: var(--ink-soft);
+    }
+
+    /* ---------- concept ---------- */
+    .concept {
+      background: var(--paper-deep);
+      padding: 160px 0;
+    }
+    .concept .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 4.4vw, 60px);
+      line-height: 1.15;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      max-width: 22ch;
+    }
+    .concept .quote em { font-style: italic; color: var(--oxblood); }
+    .concept .quote .drop {
+      font-family: 'Italiana', serif;
+      font-size: 1.4em;
+      color: var(--oxblood);
+      vertical-align: -0.05em;
+    }
+    .concept-body {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 920px;
+    }
+    .concept-body p { font-size: 16px; color: var(--ink-soft); line-height: 1.75; }
+    @media (max-width: 800px) {
+      .concept-body { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    /* ---------- about / bio ---------- */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .bio-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--rule);
+    }
+    .bio-stats .stat .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      line-height: 1;
+      color: var(--oxblood);
+      font-weight: 400;
+    }
+    .bio-stats .stat .label {
+      margin-top: 12px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .bio-image {
+      aspect-ratio: 4/5;
+      background:
+        linear-gradient(135deg, rgba(92,26,27,0.05), rgba(184,153,104,0.1)),
+        radial-gradient(circle at 30% 20%, var(--paper-deep), var(--paper));
+      border: 1px solid var(--rule-soft);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bio-image::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid var(--rule-soft);
+      pointer-events: none;
+    }
+    .bio-image .placeholder {
+      font-family: 'Italiana', serif;
+      font-size: 14px;
+      letter-spacing: 0.32em;
+      color: var(--ink-soft);
+      text-align: center;
+      padding: 0 20px;
+    }
+    .bio-image img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    @media (max-width: 900px) {
+      .bio-grid { grid-template-columns: 1fr; gap: 50px; }
+    }
+
+    /* ---------- process ---------- */
+    .process {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 160px 0;
+    }
+    .process .section-head h2 { color: var(--paper); }
+    .process .section-head h2 em { color: var(--gold); }
+    .process .section-num { color: var(--gold-soft); }
+    .process .eyebrow { color: var(--gold-soft); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .process-step {
+      padding: 60px 40px 60px 0;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      position: relative;
+    }
+    .process-step:last-child { border-right: none; }
+    .process-step:not(:first-child) { padding-left: 40px; }
+    .process-step .num {
+      font-family: 'Italiana', serif;
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 30px;
+    }
+    .process-step h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .process-step h3 em { font-style: italic; color: var(--gold-soft); }
+    .process-step p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(241, 236, 226, 0.7);
+      max-width: 36ch;
+    }
+    @media (max-width: 820px) {
+      .process-grid { grid-template-columns: 1fr; }
+      .process-step {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+        padding: 50px 0 50px 0 !important;
+      }
+      .process-step:last-child { border-bottom: none; }
+    }
+
+    /* ---------- sleeve styles gallery ---------- */
+    .atelier {
+      padding: 160px 0;
+    }
+    .styles-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+    .style-card {
+      cursor: pointer;
+      transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .style-card:hover { transform: translateY(-6px); }
+    .style-card .sleeve {
+      aspect-ratio: 1/1;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--rule-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: box-shadow 0.5s ease;
+    }
+    .style-card:hover .sleeve {
+      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.18);
+    }
+    .style-card .sleeve .label {
+      font-family: 'Italiana', serif;
+      font-size: 20px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0 20px;
+      mix-blend-mode: difference;
+      color: white;
+    }
+    /* 5 sleeve styles */
+    .sleeve-british {
+      background:
+        linear-gradient(135deg, #C8102E 0%, #C8102E 33%, #FFFFFF 33%, #FFFFFF 66%, #012169 66%, #012169 100%);
+    }
+    .sleeve-romantic {
+      background:
+        radial-gradient(circle at 30% 30%, #F4D4D8 0%, #E8B4BE 40%, #C68591 100%);
+    }
+    .sleeve-romantic::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 70% 70%, rgba(212, 185, 138, 0.5) 0%, transparent 50%);
+    }
+    .sleeve-edgy {
+      background: #0A0807;
+      position: relative;
+    }
+    .sleeve-edgy::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(45deg, transparent 48%, #C8102E 48%, #C8102E 52%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, #FFFFFF 48%, #FFFFFF 52%, transparent 52%);
+      opacity: 0.4;
+    }
+    .sleeve-artsy {
+      background:
+        radial-gradient(circle at 20% 30%, #F2B544 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, #5C1A1B 0%, transparent 40%),
+        radial-gradient(circle at 50% 70%, #1E5F4A 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, #2E4A87 0%, transparent 40%),
+        #F4ECDC;
+    }
+    .sleeve-minimal {
+      background: #F4ECDC;
+      position: relative;
+    }
+    .sleeve-minimal::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      height: 60%;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+    }
+    .sleeve-minimal::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 1px;
+      height: 80%;
+      background: var(--ink);
+    }
+    .sleeve-minimal .label { color: var(--ink); mix-blend-mode: normal; }
+    .sleeve-british .label, .sleeve-edgy .label, .sleeve-artsy .label, .sleeve-romantic .label {
+      color: white;
+      mix-blend-mode: difference;
+    }
+
+    .style-card .meta {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .style-card .meta .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.005em;
+    }
+    .style-card .meta .num-small {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--ink-soft);
+    }
+    .style-card .desc {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    @media (max-width: 1100px) {
+      .styles-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    }
+    @media (max-width: 600px) {
+      .styles-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---------- investment ---------- */
+    .investment {
+      background: var(--paper-deep);
+      padding: 160px 0;
+    }
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .tier {
+      background: var(--paper);
+      padding: 50px 40px;
+      border: 1px solid var(--rule-soft);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+    }
+    .tier:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.12);
+      border-color: var(--ink);
+    }
+    .tier .tier-num {
+      font-family: 'Italiana', serif;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      color: var(--oxblood);
+      margin-bottom: 30px;
+    }
+    .tier h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .tier .for {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 24px;
+    }
+    .tier .desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .tier ul {
+      list-style: none;
+      padding: 24px 0 0 0;
+      margin: 0;
+      flex: 1;
+    }
+    .tier li {
+      font-size: 13px;
+      padding: 8px 0;
+      color: var(--ink);
+      position: relative;
+      padding-left: 18px;
+    }
+    .tier li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: var(--oxblood);
+      font-size: 20px;
+      line-height: 1;
+    }
+    .tier .price {
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule-soft);
+    }
+    .tier .price .from {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .tier .price .amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1;
+      margin-top: 6px;
+      color: var(--ink);
+    }
+    .tier .price .amount em { font-style: italic; color: var(--oxblood); }
+    .investment-note {
+      margin-top: 60px;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--ink-soft);
+    }
+    @media (max-width: 1000px) {
+      .tiers { grid-template-columns: 1fr; }
+    }
+
+    /* ---------- experience / sensory ---------- */
+    .experience {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 180px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .experience::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at center, rgba(184,153,104,0.08) 0%, transparent 60%);
+    }
+    .experience .pull-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4.6vw, 64px);
+      line-height: 1.15;
+      font-weight: 300;
+      max-width: 22ch;
+      margin: 0 auto;
+      font-style: italic;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 2;
+    }
+    .experience .pull-quote::before {
+      content: "“";
+      font-family: 'Italiana', serif;
+      font-style: normal;
+      color: var(--gold);
+      font-size: 1.4em;
+      line-height: 0;
+      vertical-align: -0.3em;
+      margin-right: 0.1em;
+    }
+    .experience .credit {
+      margin-top: 50px;
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      position: relative;
+      z-index: 2;
+    }
+    .experience .small-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 30px auto 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ---------- team ---------- */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .member {
+      display: flex;
+      flex-direction: column;
+    }
+    .member .portrait {
+      aspect-ratio: 3/4;
+      background:
+        linear-gradient(135deg, var(--paper-deep), var(--paper));
+      border: 1px solid var(--rule-soft);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: filter 0.4s ease;
+    }
+    .member:hover .portrait { filter: brightness(0.97); }
+    .member .portrait::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid var(--rule-soft);
+      pointer-events: none;
+    }
+    .member .portrait .initials {
+      font-family: 'Italiana', serif;
+      font-size: 72px;
+      color: var(--oxblood);
+      line-height: 1;
+      opacity: 0.3;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .member .portrait img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .member .info {
+      margin-top: 24px;
+    }
+    .member .info .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+    .member .info .role {
+      margin-top: 6px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .member .info .bio {
+      margin-top: 14px;
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+    @media (max-width: 900px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---------- commission CTA ---------- */
+    .commission {
+      padding: 180px 0;
+      text-align: center;
+      background: var(--paper);
+      border-top: 1px solid var(--rule-soft);
+    }
+    .commission h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(46px, 7vw, 96px);
+      line-height: 1;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      max-width: 16ch;
+      margin: 0 auto;
+    }
+    .commission h2 em { font-style: italic; color: var(--oxblood); }
+    .commission .sub {
+      margin-top: 30px;
+      max-width: 50ch;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+    .commission .cta-row {
+      margin-top: 56px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 40px;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid var(--ink);
+    }
+    .btn-primary:hover {
+      background: var(--oxblood);
+      border-color: var(--oxblood);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 40px;
+      background: transparent;
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid var(--ink);
+    }
+    .btn-secondary:hover {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .availability {
+      margin-top: 50px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--ink-soft);
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 80px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    footer .brand {
+      color: var(--paper);
+      font-size: 24px;
+    }
+    footer .tag {
+      margin-top: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--gold-soft);
+      max-width: 30ch;
+    }
+    footer h4 {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin: 0 0 18px 0;
+      font-weight: 500;
+    }
+    footer ul { list-style: none; padding: 0; margin: 0; }
+    footer ul li { margin-bottom: 10px; }
+    footer ul li a, footer ul li {
+      color: rgba(241, 236, 226, 0.75);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+    footer ul li a:hover { color: var(--paper); }
+    .footer-bottom {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(241, 236, 226, 0.5);
+    }
+    @media (max-width: 800px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; gap: 20px; }
+    }
+
+    /* ---------- reveal animation ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 1.1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal.delay-1 { transition-delay: 0.1s; }
+    .reveal.delay-2 { transition-delay: 0.2s; }
+    .reveal.delay-3 { transition-delay: 0.3s; }
+    .reveal.delay-4 { transition-delay: 0.4s; }
+    .reveal.delay-5 { transition-delay: 0.5s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="top" id="topnav">
+  <a href="#top" class="brand">The Sound <span class="amp">&</span> Atelier</a>
+  <div class="nav-links">
+    <a href="#concept">Story</a>
+    <a href="#process">Process</a>
+    <a href="#atelier">Atelier</a>
+    <a href="#investment">Commission</a>
+    <a href="#team">Studio</a>
+  </div>
+  <a href="#commission" class="nav-cta">Enquire</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="vinyl" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow reveal">
+      <span class="line"></span>
+      <span class="eyebrow">Est. London · A Music & Design Atelier</span>
+    </div>
+    <h1 class="reveal delay-1">
+      Bespoke<br/>soundtracks.<br/>
+      <em>Timeless</em> keepsakes.
+    </h1>
+    <p class="hero-sub reveal delay-2">
+      A London-based production house composing original music for weddings,
+      milestones and brand moments — pressed onto custom-designed vinyl,
+      made to be displayed, replayed and remembered.
+    </p>
+  </div>
+  <div class="hero-meta">
+    <div class="col reveal delay-3">
+      <div>01 — Composed in studio</div>
+      <div style="margin-top:6px; opacity:0.6;">London · Los Angeles · Seoul</div>
+    </div>
+    <div class="scroll-cue reveal delay-4">
+      <span>Scroll</span>
+      <span class="bar"></span>
+    </div>
+    <div class="col reveal delay-3" style="text-align:right;">
+      <div>02 — Pressed on vinyl</div>
+      <div style="margin-top:6px; opacity:0.6;">Bespoke artwork by Stuart Tolley</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCEPT ============ -->
+<section class="concept" id="concept">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num reveal">I — The Concept</span>
+    </div>
+    <p class="quote reveal">
+      <span class="drop">E</span>very great love story<br/>
+      deserves <em>its own soundtrack.</em>
+    </p>
+    <div class="concept-body">
+      <p class="reveal delay-1">
+        The Sound Atelier crafts two hours of original, bespoke music, composed
+        exclusively for your day. From smooth cocktail grooves to refined dinner
+        soundtracks, every note is written to reflect <em>you</em> — your style,
+        your story, your rhythm.
+      </p>
+      <p class="reveal delay-2">
+        A hand-picked selection is pressed onto custom-designed vinyl, complete
+        with bespoke artwork by our lead designer. On the day, your guests leave
+        with their own copy — a memento of the celebration and the music that
+        made it unforgettable.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BIO / ABOUT ============ -->
+<section class="section-pad" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">
+        Music made for <em>moments</em>,<br/>
+        not for everyone.
+      </h2>
+      <span class="section-num reveal delay-1">II — The Atelier</span>
+    </div>
+    <div class="bio-grid">
+      <div class="reveal">
+        <p style="font-size:17px; line-height:1.75; color:var(--ink-soft); max-width: 50ch;">
+          As Sony Music roster producers with thousands of physical sales
+          worldwide, our team collaborates with celebrated songwriters and
+          artists across Los Angeles, Seoul, London and beyond — bringing global
+          artistry into life's most personal moments.
+        </p>
+        <p style="font-size:17px; line-height:1.75; color:var(--ink-soft); max-width: 50ch; margin-top: 24px;">
+          The Sound Atelier introduces the first <em>on-demand bespoke music
+          service</em> for private events and brand commissions: tailor-made
+          tracks for every chapter of a celebration, paired with a hand-pressed
+          vinyl artefact designed to outlast the day.
+        </p>
+        <div class="bio-stats">
+          <div class="stat">
+            <div class="num">100k+</div>
+            <div class="label">Physical sales worldwide</div>
+          </div>
+          <div class="stat">
+            <div class="num">3</div>
+            <div class="label">Cities · London / LA / Seoul</div>
+          </div>
+        </div>
+      </div>
+      <div class="bio-image reveal delay-1">
+        <span class="placeholder">[ Studio image &mdash;<br/>drop in producer shoot ]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">
+        <em>Discover.</em> Compose.<br/>
+        Press.
+      </h2>
+      <span class="section-num reveal delay-1">III — The Process</span>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="num">Step 01</div>
+        <h3><em>Discover</em></h3>
+        <p>
+          We begin with a personal creative consultation — a conversation to
+          understand your story, mood, and aesthetic. Together we explore the
+          atmosphere you want to create and the feeling you want your guests
+          to remember.
+        </p>
+      </div>
+      <div class="process-step reveal delay-1">
+        <div class="num">Step 02</div>
+        <h3><em>Compose</em></h3>
+        <p>
+          Our producers craft a two-hour bespoke soundtrack. Each piece is
+          written and mixed to reflect your style, your rhythm, and your
+          story — from welcome to last dance.
+        </p>
+      </div>
+      <div class="process-step reveal delay-2">
+        <div class="num">Step 03</div>
+        <h3><em>Press</em></h3>
+        <p>
+          A curated 40-minute selection is pressed onto luxury vinyl, with
+          bespoke sleeve artwork tailored to your aesthetic. A record that
+          looks as beautiful as it sounds.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATELIER / SLEEVE STYLES ============ -->
+<section class="atelier" id="atelier">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">
+        Five design directions.<br/>
+        <em>One</em> for your story.
+      </h2>
+      <span class="section-num reveal delay-1">IV — The Keepsake</span>
+    </div>
+    <p class="reveal delay-2" style="max-width:60ch; margin: -40px 0 60px; font-size:16px; line-height:1.7; color:var(--ink-soft);">
+      Every sleeve is hand-designed by our lead designer
+      <strong style="color:var(--ink); font-weight:500;">Stuart Tolley</strong>,
+      printed in CMYK with matt lamination and finished with metallic foils — red, gold, black or white — to match the spirit of the music inside.
+    </p>
+    <div class="styles-grid">
+      <div class="style-card reveal">
+        <div class="sleeve sleeve-british"><span class="label">British</span></div>
+        <div class="meta">
+          <span class="name">British</span>
+          <span class="num-small">01</span>
+        </div>
+        <p class="desc">Hand-drawn doodles, digital collage. Red foil finish.</p>
+      </div>
+      <div class="style-card reveal delay-1">
+        <div class="sleeve sleeve-romantic"><span class="label">Romantic</span></div>
+        <div class="meta">
+          <span class="name">Romantic</span>
+          <span class="num-small">02</span>
+        </div>
+        <p class="desc">Soft florals, calligraphy typography. Gold foil finish.</p>
+      </div>
+      <div class="style-card reveal delay-2">
+        <div class="sleeve sleeve-edgy"><span class="label">Edgy</span></div>
+        <div class="meta">
+          <span class="name">Edgy</span>
+          <span class="num-small">03</span>
+        </div>
+        <p class="desc">Raw typography, analogue textures. Black foil finish.</p>
+      </div>
+      <div class="style-card reveal delay-3">
+        <div class="sleeve sleeve-artsy"><span class="label">Fine Artsy</span></div>
+        <div class="meta">
+          <span class="name">Fine Artsy</span>
+          <span class="num-small">04</span>
+        </div>
+        <p class="desc">Abstract painterly imagery. Spot gloss varnish detail.</p>
+      </div>
+      <div class="style-card reveal delay-4">
+        <div class="sleeve sleeve-minimal"><span class="label">Minimalist</span></div>
+        <div class="meta">
+          <span class="name">Minimalist</span>
+          <span class="num-small">05</span>
+        </div>
+        <p class="desc">Geometric vectors, Swiss-inspired type. White foil finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INVESTMENT ============ -->
+<section class="investment" id="investment">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">
+        Three <em>commissions.</em><br/>
+        One studio.
+      </h2>
+      <span class="section-num reveal delay-1">V — Investment</span>
+    </div>
+    <div class="tiers">
+      <div class="tier reveal">
+        <div class="tier-num">Commission 01</div>
+        <h3>Private Event</h3>
+        <div class="for">Weddings · Milestones</div>
+        <div class="desc">
+          A personal keepsake and emotional record of your day. Two hours of
+          bespoke music written for your celebration, with a 40-minute best-of
+          pressed to vinyl.
+        </div>
+        <ul>
+          <li>2hr custom soundtrack</li>
+          <li>Studio production</li>
+          <li>100 × bespoke vinyl pressings</li>
+          <li>One sleeve concept · front + back</li>
+        </ul>
+        <div class="price">
+          <div class="from">From</div>
+          <div class="amount">£10,000<em>+</em></div>
+        </div>
+      </div>
+      <div class="tier reveal delay-1">
+        <div class="tier-num">Commission 02</div>
+        <h3>Corporate Gifting</h3>
+        <div class="for">Brand · VIP · Internal</div>
+        <div class="desc">
+          A premium cultural object that strengthens relationships and marks
+          an important moment. A bespoke soundtrack pressed and packaged in
+          your brand identity.
+        </div>
+        <ul>
+          <li>2hr custom soundtrack</li>
+          <li>Brand-aligned sleeve design</li>
+          <li>100 × premium vinyl pressings</li>
+          <li>Higher production finish</li>
+        </ul>
+        <div class="price">
+          <div class="from">From</div>
+          <div class="amount">£12,000<em>+</em></div>
+        </div>
+      </div>
+      <div class="tier reveal delay-2">
+        <div class="tier-num">Commission 03</div>
+        <h3>Flagship Event</h3>
+        <div class="for">Cultural · Brand Moments</div>
+        <div class="desc">
+          The full commission. Original music produced for a flagship event,
+          live performance integration available, and a premium vinyl artefact
+          released post-event.
+        </div>
+        <ul>
+          <li>Original soundtrack + live integration</li>
+          <li>Full creative direction</li>
+          <li>Larger pressing run · custom packaging</li>
+          <li>Multiple inserts · booklet option</li>
+        </ul>
+        <div class="price">
+          <div class="from">From</div>
+          <div class="amount">£16,000<em>+</em></div>
+        </div>
+      </div>
+    </div>
+    <p class="investment-note reveal">
+      Pricing scales with number of vinyl pressed and depth of design scope.<br/>
+      All commissions require a minimum of three months' notice.
+    </p>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE / PULL QUOTE ============ -->
+<section class="experience">
+  <div class="wrap-narrow">
+    <p class="pull-quote reveal">
+      Hearing our own soundtrack play as we walked in — it felt like a film.
+      Every note belonged to <em>us.</em>
+    </p>
+    <div class="small-rule reveal delay-1"></div>
+    <div class="credit reveal delay-2">An imagined memory · The Bride</div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="section-pad" id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">
+        Created by <em>artists.</em><br/>
+        Made for music lovers.
+      </h2>
+      <span class="section-num reveal delay-1">VI — The Studio</span>
+    </div>
+    <div class="team-grid">
+      <div class="member reveal">
+        <div class="portrait">
+          <span class="initials">LD</span>
+        </div>
+        <div class="info">
+          <div class="name">Lucy Dixon</div>
+          <div class="role">Head of Customer</div>
+          <p class="bio">Leads every commission from first conversation to final pressing — making sure every detail is felt before it's heard.</p>
+        </div>
+      </div>
+      <div class="member reveal delay-1">
+        <div class="portrait">
+          <span class="initials">GM</span>
+        </div>
+        <div class="info">
+          <div class="name">Gauthier</div>
+          <div class="role">Music Producer</div>
+          <p class="bio">Sony Music roster producer with thousands of physical sales worldwide, blending London polish with global collaborators.</p>
+        </div>
+      </div>
+      <div class="member reveal delay-2">
+        <div class="portrait">
+          <span class="initials">SL</span>
+        </div>
+        <div class="info">
+          <div class="name">Steve Langstaff</div>
+          <div class="role">Music Producer</div>
+          <p class="bio">A composer's ear for detail. Crafts the score that connects every chapter of your day, from arrival to last dance.</p>
+        </div>
+      </div>
+      <div class="member reveal delay-3">
+        <div class="portrait">
+          <span class="initials">ST</span>
+        </div>
+        <div class="info">
+          <div class="name">Stuart Tolley</div>
+          <div class="role">Lead Designer</div>
+          <p class="bio">An award-winning art director shaping every sleeve, label and insert — turning sound into an object you can hold.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMISSION CTA ============ -->
+<section class="commission" id="commission">
+  <div class="wrap-narrow">
+    <h2 class="reveal">
+      Commission <em>your</em><br/>
+      soundtrack.
+    </h2>
+    <p class="sub reveal delay-1">
+      Tell us about your day or your brand moment. We'll arrange a creative
+      consultation to understand the story you want to tell — in sound and
+      in design.
+    </p>
+    <div class="cta-row reveal delay-2">
+      <a href="mailto:hello@thesoundatelier.com?subject=New%20Commission%20Enquiry" class="btn-primary">
+        Begin a commission →
+      </a>
+      <a href="mailto:hello@thesoundatelier.com?subject=Listening%20Sample%20Request" class="btn-secondary">
+        Request a listening sample
+      </a>
+    </div>
+    <p class="availability reveal delay-3">
+      Limited commissions accepted each season. Minimum three months' notice.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="brand">The Sound <span class="amp" style="color:var(--gold);">&</span> Atelier</a>
+        <p class="tag">Bespoke soundtracks. Timeless keepsakes. Made in London for the world.</p>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li>London, UK</li>
+          <li>By appointment</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@thesoundatelier.com">hello@thesoundatelier.com</a></li>
+          <li><a href="mailto:hello@thesoundatelier.com?subject=Press%20Enquiry">Press enquiries</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#concept">The Concept</a></li>
+          <li><a href="#process">The Process</a></li>
+          <li><a href="#atelier">The Keepsake</a></li>
+          <li><a href="#investment">Commission</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year">2026</span> The Sound Atelier</div>
+      <div>Bespoke · London · Worldwide</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky nav
+  const nav = document.getElementById('topnav');
+  const onScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // reveal-on-scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  reveals.forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
