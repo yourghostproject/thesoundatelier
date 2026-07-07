@@ -970,28 +970,25 @@
       padding-right: 80px;
     }
     .marquee:hover .marquee-track { animation-play-state: paused; }
-    .brand-mark {
-      font-family: 'Italiana', serif;
-      font-size: clamp(24px, 3vw, 34px);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity: 0.55;
-      white-space: nowrap;
-      transition: opacity 0.4s ease, color 0.4s ease;
-      display: inline-flex;
-      align-items: center;
-    }
-    .brand-mark::after {
-      content: "·";
-      margin-left: 80px;
-      color: var(--oxblood);
+    .brand-logo {
+      height: 42px;
+      width: auto;
+      max-width: 180px;
+      max-height: 42px;
+      object-fit: contain;
+      flex-shrink: 0;
       opacity: 0.5;
-      font-size: 1.6em;
-      line-height: 0;
+      filter: brightness(0);
+      transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
     }
-    .brand-mark:last-child::after { content: ""; margin-left: 0; }
-    .brand-mark:hover { opacity: 1; color: var(--oxblood); }
+    .brand-logo:hover {
+      opacity: 0.95;
+      transform: scale(1.04);
+    }
+    @media (max-width: 700px) {
+      .brand-logo { height: 32px; max-height: 32px; max-width: 130px; }
+      .marquee-track { gap: 60px; }
+    }
 
     @keyframes marquee {
       from { transform: translateX(0); }
@@ -1403,31 +1400,29 @@
   <div class="marquee" aria-label="Selected client collaborations">
     <div class="marquee-track">
       <!-- Row A -->
-      <span class="brand-mark">Metro Bank</span>
-      <span class="brand-mark">Five Guys</span>
-      <span class="brand-mark">Sky</span>
-      <span class="brand-mark">PwC</span>
-      <span class="brand-mark">BBC One</span>
-      <span class="brand-mark">Netflix</span>
-      <span class="brand-mark">ABC</span>
-      <span class="brand-mark">Qatar World Cup 2022</span>
-      <span class="brand-mark">Microsoft</span>
-      <span class="brand-mark">Sony Music</span>
-      <span class="brand-mark">Universal Music</span>
-      <span class="brand-mark">Pornhub</span>
+      <img class="brand-logo" src="images/logos/metrobank.svg" alt="Metro Bank" />
+      <img class="brand-logo" src="images/logos/fiveguys.svg" alt="Five Guys" />
+      <img class="brand-logo" src="images/logos/sky.svg" alt="Sky" />
+      <img class="brand-logo" src="images/logos/pwc.svg" alt="PwC" />
+      <img class="brand-logo" src="images/logos/bbc-one.svg" alt="BBC One" />
+      <img class="brand-logo" src="images/logos/netflix.svg" alt="Netflix" />
+      <img class="brand-logo" src="images/logos/abc.svg" alt="ABC" />
+      <img class="brand-logo" src="images/logos/qatar-worldcup-2022.svg" alt="Qatar World Cup 2022" />
+      <img class="brand-logo" src="images/logos/microsoft.svg" alt="Microsoft" />
+      <img class="brand-logo" src="images/logos/sony-music.svg" alt="Sony Music Entertainment" />
+      <img class="brand-logo" src="images/logos/universal-music.svg" alt="Universal Music Group" />
       <!-- Row A duplicated for seamless loop -->
-      <span class="brand-mark" aria-hidden="true">Metro Bank</span>
-      <span class="brand-mark" aria-hidden="true">Five Guys</span>
-      <span class="brand-mark" aria-hidden="true">Sky</span>
-      <span class="brand-mark" aria-hidden="true">PwC</span>
-      <span class="brand-mark" aria-hidden="true">BBC One</span>
-      <span class="brand-mark" aria-hidden="true">Netflix</span>
-      <span class="brand-mark" aria-hidden="true">ABC</span>
-      <span class="brand-mark" aria-hidden="true">Qatar World Cup 2022</span>
-      <span class="brand-mark" aria-hidden="true">Microsoft</span>
-      <span class="brand-mark" aria-hidden="true">Sony Music</span>
-      <span class="brand-mark" aria-hidden="true">Universal Music</span>
-      <span class="brand-mark" aria-hidden="true">Pornhub</span>
+      <img class="brand-logo" src="images/logos/metrobank.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/fiveguys.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/sky.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/pwc.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/bbc-one.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/netflix.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/abc.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/qatar-worldcup-2022.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/microsoft.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/sony-music.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/universal-music.svg" alt="" aria-hidden="true" />
     </div>
   </div>
 </section>
