@@ -135,6 +135,7 @@
       padding: 140px 32px 80px;
       position: relative;
       overflow: hidden;
+      perspective: 1600px;
     }
     .hero-inner { max-width: 1280px; margin: 0 auto; width: 100%; position: relative; z-index: 3; }
     .hero-eyebrow {
@@ -199,48 +200,37 @@
       50%      { transform: scaleY(1);   transform-origin: top; opacity: 1; }
     }
 
-    /* spinning record in hero */
-    .vinyl {
+    /* spinning 3D record in hero */
+    .vinyl-hero {
       position: absolute;
-      right: -180px;
+      right: -140px;
       top: 50%;
-      transform: translateY(-50%);
-      width: 720px;
-      height: 720px;
-      border-radius: 50%;
+      width: 640px;
+      height: 640px;
+      transform: translateY(-50%) rotateX(22deg) rotateZ(-6deg);
+      transform-style: preserve-3d;
       z-index: 2;
-      animation: spin 24s linear infinite;
-      background:
-        radial-gradient(circle at center, var(--oxblood) 0 9%, var(--ink) 9.5% 10%, transparent 10%),
-        repeating-radial-gradient(circle at center, #0d0a09 0 1.2px, #1a1614 1.2px 2.6px),
-        radial-gradient(circle at center, #1a1614 0%, #0a0807 100%);
-      box-shadow:
-        inset 0 0 80px rgba(0,0,0,0.6),
-        0 30px 80px rgba(0,0,0,0.25);
-      opacity: 0.85;
+      filter: drop-shadow(0 46px 55px rgba(0,0,0,0.4));
+      pointer-events: none;
     }
-    .vinyl::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.06) 0%, transparent 50%);
+    .vinyl-disc {
+      width: 100%;
+      height: 100%;
+      display: block;
+      animation: vinyl-spin 16s linear infinite;
     }
-    @keyframes spin {
-      from { transform: translateY(-50%) rotate(0deg); }
-      to   { transform: translateY(-50%) rotate(360deg); }
+    @keyframes vinyl-spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
     @media (max-width: 1100px) {
-      .vinyl { width: 480px; height: 480px; right: -240px; opacity: 0.55; }
+      .vinyl-hero { width: 460px; height: 460px; right: -150px; opacity: 0.75; }
     }
     @media (max-width: 700px) {
-      .vinyl { width: 360px; height: 360px; right: -200px; top: 18%; transform: none; opacity: 0.4; }
-      @keyframes spin {
-        from { transform: rotate(0deg); }
-        to   { transform: rotate(360deg); }
-      }
-      .hero-meta { position: static; flex-direction: column; gap: 24px; margin-top: 80px; align-items: flex-start; }
+      .vinyl-hero { width: 300px; height: 300px; right: -90px; top: 16%; opacity: 0.32; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .vinyl-disc { animation: none; }
     }
 
     /* ---------- generic section ---------- */
@@ -1052,6 +1042,15 @@
       font-weight: 500;
     }
     .cert-sub { font-size: 12px; color: var(--ink-soft); letter-spacing: 0.02em; }
+    .cert-stat {
+      margin-top: 9px;
+      padding-top: 9px;
+      border-top: 1px solid var(--rule-soft);
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9a7b4f;
+    }
 
     /* ---------- cities strip ---------- */
     .cities {
@@ -1222,6 +1221,25 @@
       }
       .reveal { opacity: 1; transform: none; }
     }
+
+    /* ---------- mobile spacing tightening ---------- */
+    @media (max-width: 700px) {
+      .hero { min-height: 86vh; padding-bottom: 44px; }
+      .hero-meta { bottom: 30px; }
+      .clients { padding: 50px 0 56px; }
+      .clients-head { margin-bottom: 40px; }
+      .concept { padding: 66px 0; }
+      .section-pad { padding: 66px 0; }
+      .cases { padding: 60px 0; }
+      .process { padding: 74px 0; }
+      .case { padding: 44px 0; }
+      .cities { margin-top: 40px; padding-top: 26px; }
+      .cert { margin-top: 32px; }
+      /* stack contact line: phone below email so it isn't truncated */
+      .contact-line { line-height: 2.1; }
+      .contact-line .sep { display: none; }
+      .contact-line a { display: block; }
+    }
   </style>
 </head>
 <body>
@@ -1240,7 +1258,9 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="vinyl" aria-hidden="true"></div>
+  <div class="vinyl-hero" aria-hidden="true">
+    <img class="vinyl-disc" src="images/logo-vinyl.png" alt="" />
+  </div>
   <div class="hero-inner">
     <div class="hero-eyebrow reveal">
       <span class="line"></span>
@@ -1260,6 +1280,42 @@
     <div class="scroll-cue reveal delay-4">
       <span>Scroll</span>
       <span class="bar"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTS MARQUEE ============ -->
+<section class="clients" id="clients">
+  <div class="clients-head reveal">
+    <span class="eyebrow">Prior collaborations</span>
+    <p class="clients-tag">A studio trusted by <em>broadcasters, brands and labels</em> around the world.</p>
+  </div>
+  <div class="marquee" aria-label="Selected client collaborations">
+    <div class="marquee-track">
+      <!-- Row A -->
+      <img class="brand-logo" src="images/logos/metrobank.svg" alt="Metro Bank" />
+      <img class="brand-logo" src="images/logos/fiveguys.svg" alt="Five Guys" />
+      <img class="brand-logo" src="images/logos/sky.svg" alt="Sky" />
+      <img class="brand-logo" src="images/logos/pwc.svg" alt="PwC" />
+      <img class="brand-logo" src="images/logos/bbc-one.svg" alt="BBC One" />
+      <img class="brand-logo" src="images/logos/netflix.svg" alt="Netflix" />
+      <img class="brand-logo" src="images/logos/abc.svg" alt="ABC" />
+      <img class="brand-logo" src="images/logos/qatar-worldcup-2022.svg" alt="Qatar World Cup 2022" />
+      <img class="brand-logo" src="images/logos/microsoft.svg" alt="Microsoft" />
+      <img class="brand-logo" src="images/logos/sony-music.svg" alt="Sony Music Entertainment" />
+      <img class="brand-logo" src="images/logos/universal-music.svg" alt="Universal Music Group" />
+      <!-- Row A duplicated for seamless loop -->
+      <img class="brand-logo" src="images/logos/metrobank.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/fiveguys.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/sky.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/pwc.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/bbc-one.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/netflix.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/abc.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/qatar-worldcup-2022.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/microsoft.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/sony-music.svg" alt="" aria-hidden="true" />
+      <img class="brand-logo" src="images/logos/universal-music.svg" alt="" aria-hidden="true" />
     </div>
   </div>
 </section>
@@ -1315,26 +1371,19 @@
           original music written for every chapter of your experience, paired
           with pressed vinyls designed to outlast the moment.
         </p>
-        <div class="bio-stats">
-          <div class="stat">
-            <div class="num">100k+</div>
-            <div class="label">Physical sales worldwide</div>
-          </div>
-        </div>
         <div class="cert">
           <svg class="cert-seal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MUSO certification seal">
             <circle cx="50" cy="50" r="47" fill="none" stroke="#B89968" stroke-width="1.4"/>
             <circle cx="50" cy="50" r="41" fill="none" stroke="#B89968" stroke-width="0.5" stroke-dasharray="0.6 3"/>
-            <path d="M50 25 l3.3 7.2 7.9 .6 -6 5.2 1.9 7.7 -7 -4.2 -7 4.2 1.9 -7.7 -6 -5.2 7.9 -.6z" fill="#B89968"/>
-            <text x="50" y="62" text-anchor="middle" font-family="Georgia, serif" font-size="11" letter-spacing="1.5" fill="#5C1A1B" font-weight="700">MUSO</text>
-            <text x="50" y="73" text-anchor="middle" font-family="Georgia, serif" font-size="5.5" letter-spacing="2" fill="#9a7b4f">CERTIFIED</text>
-            <path d="M22 60 Q26 74 39 80" fill="none" stroke="#B89968" stroke-width="1"/>
-            <path d="M78 60 Q74 74 61 80" fill="none" stroke="#B89968" stroke-width="1"/>
+            <path d="M50 26 l3.5 7.7 8.4 .6 -6.4 5.5 2 8.2 -7.5 -4.5 -7.5 4.5 2 -8.2 -6.4 -5.5 8.4 -.6z" fill="#B89968"/>
+            <text x="50" y="60" text-anchor="middle" font-family="Georgia, serif" font-size="12" letter-spacing="1.5" fill="#5C1A1B" font-weight="700">MUSO</text>
+            <text x="50" y="71" text-anchor="middle" font-family="Georgia, serif" font-size="5.5" letter-spacing="2" fill="#9a7b4f">CERTIFIED</text>
           </svg>
           <div class="cert-text">
             <div class="cert-label">MUSO Certified</div>
             <div class="cert-title">Top 10% of producers worldwide</div>
             <div class="cert-sub">Awarded to Gauthier &amp; Ste · 2026</div>
+            <div class="cert-stat">100,000+ physical sales worldwide</div>
           </div>
         </div>
       </div>
@@ -1538,42 +1587,6 @@
   </div>
 </section>
 
-<!-- ============ CLIENTS MARQUEE ============ -->
-<section class="clients" id="clients">
-  <div class="clients-head reveal">
-    <span class="eyebrow">Prior collaborations</span>
-    <p class="clients-tag">A studio trusted by <em>broadcasters, brands and labels</em> around the world.</p>
-  </div>
-  <div class="marquee" aria-label="Selected client collaborations">
-    <div class="marquee-track">
-      <!-- Row A -->
-      <img class="brand-logo" src="images/logos/metrobank.svg" alt="Metro Bank" />
-      <img class="brand-logo" src="images/logos/fiveguys.svg" alt="Five Guys" />
-      <img class="brand-logo" src="images/logos/sky.svg" alt="Sky" />
-      <img class="brand-logo" src="images/logos/pwc.svg" alt="PwC" />
-      <img class="brand-logo" src="images/logos/bbc-one.svg" alt="BBC One" />
-      <img class="brand-logo" src="images/logos/netflix.svg" alt="Netflix" />
-      <img class="brand-logo" src="images/logos/abc.svg" alt="ABC" />
-      <img class="brand-logo" src="images/logos/qatar-worldcup-2022.svg" alt="Qatar World Cup 2022" />
-      <img class="brand-logo" src="images/logos/microsoft.svg" alt="Microsoft" />
-      <img class="brand-logo" src="images/logos/sony-music.svg" alt="Sony Music Entertainment" />
-      <img class="brand-logo" src="images/logos/universal-music.svg" alt="Universal Music Group" />
-      <!-- Row A duplicated for seamless loop -->
-      <img class="brand-logo" src="images/logos/metrobank.svg" alt="" aria-hidden="true" />
-      <img class="brand-logo" src="images/logos/fiveguys.svg" alt="" aria-hidden="true" />
-      <img class="brand-logo" src="images/logos/sky.svg" alt="" aria-hidden="true" />
-      <img class="brand-logo" src="images/logos/pwc.svg" alt="" aria-hidden="true" />
-      <img class="brand-logo" src="images/logos/bbc-one.svg" alt="" aria-hidden="true" />
-      <img class="brand-logo" src="images/logos/netflix.svg" alt="" aria-hidden="true" />
-      <img class="brand-logo" src="images/logos/abc.svg" alt="" aria-hidden="true" />
-      <img class="brand-logo" src="images/logos/qatar-worldcup-2022.svg" alt="" aria-hidden="true" />
-      <img class="brand-logo" src="images/logos/microsoft.svg" alt="" aria-hidden="true" />
-      <img class="brand-logo" src="images/logos/sony-music.svg" alt="" aria-hidden="true" />
-      <img class="brand-logo" src="images/logos/universal-music.svg" alt="" aria-hidden="true" />
-    </div>
-  </div>
-</section>
-
 <!-- ============ COMMISSION CTA ============ -->
 <section class="commission" id="commission">
   <div class="wrap-narrow">
@@ -1590,17 +1603,17 @@
       <button type="button" class="btn-primary" id="copyEmailBtn" data-email="lucy@houseoflemon.co.uk" onclick="copyEmail(this)">
         Copy email address
       </button>
-      <a href="https://wa.me/44775349638" target="_blank" rel="noopener" class="btn-secondary">
+      <a href="https://wa.me/447753496398" target="_blank" rel="noopener" class="btn-secondary">
         Message on WhatsApp
       </a>
     </div>
     <p class="contact-line reveal delay-3">
       <a href="mailto:lucy@houseoflemon.co.uk">lucy@houseoflemon.co.uk</a>
       <span class="sep">·</span>
-      <a href="tel:+44775349638">+44 7753 49638</a>
+      <a href="tel:+447753496398">+44 7753 496398</a>
     </p>
     <p class="availability reveal delay-3">
-      Limited commissions accepted each season. Minimum three months' notice.
+      Limited commissions accepted each season.
     </p>
   </div>
 </section>
