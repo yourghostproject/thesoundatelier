@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Sound Atelier — Bespoke Soundtracks. Timeless Keepsakes.</title>
-  <meta name="description" content="A London-based production house crafting bespoke soundtracks and limited-edition vinyl artefacts for weddings, milestones and brand moments." />
+  <title>The Sound Atelier - Bespoke Soundtracks. Timeless Keepsakes.</title>
+  <meta name="description" content="A London-based production house crafting bespoke soundtracks and limited-edition vinyl artefacts for weddings, corporate events and brand activations." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="mask-icon" href="favicon.svg" color="#5C1A1B" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -864,8 +866,33 @@
       background: var(--ink);
       color: var(--paper);
     }
+    .btn-primary, .btn-secondary {
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+    }
+    .btn-primary.copied {
+      background: var(--oxblood);
+      border-color: var(--oxblood);
+      color: var(--paper);
+    }
+    .contact-line {
+      margin-top: 34px;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      color: var(--ink-soft);
+    }
+    .contact-line a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .contact-line a:hover { color: var(--oxblood); border-color: var(--oxblood); }
+    .contact-line .sep { padding: 0 14px; color: var(--oxblood); }
+
     .availability {
-      margin-top: 50px;
+      margin-top: 40px;
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 16px;
@@ -1055,8 +1082,8 @@
     .cases { padding: 140px 0; background: var(--paper); }
     .case {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 66px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 60px;
       align-items: center;
       padding: 78px 0;
       border-top: 1px solid var(--rule-soft);
@@ -1064,6 +1091,12 @@
     .case:first-of-type { border-top: none; padding-top: 20px; }
     .case--reverse .case-visual { order: 2; }
     .case-visual { position: relative; }
+    .case-mock {
+      width: 100%;
+      height: auto;
+      display: block;
+      box-shadow: 0 40px 80px -34px rgba(26,22,20,0.4);
+    }
 
     .vinyl-mock {
       aspect-ratio: 1 / 1;
@@ -1129,11 +1162,13 @@
       margin: 14px 0 8px;
     }
     .case-context {
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.5;
       color: var(--ink-soft);
       margin-bottom: 34px;
+      max-width: 48ch;
     }
     .case-steps { display: flex; flex-direction: column; gap: 22px; }
     .case-step {
@@ -1193,7 +1228,7 @@
 
 <!-- ============ NAV ============ -->
 <nav class="top" id="topnav">
-  <a href="#top" class="brand">The Sound <span class="amp">&</span> Atelier</a>
+  <a href="#top" class="brand">The Sound Atelier</a>
   <div class="nav-links">
     <a href="#concept">Story</a>
     <a href="#cases">Case Studies</a>
@@ -1217,22 +1252,14 @@
     </h1>
     <p class="hero-sub reveal delay-2">
       A London-based production house composing original music for weddings,
-      milestones and brand moments — pressed onto custom-designed vinyl,
+      milestones and brand moments - pressed onto custom-designed vinyl,
       made to be displayed, replayed and remembered.
     </p>
   </div>
-  <div class="hero-meta">
-    <div class="col reveal delay-3">
-      <div>01 — Composed in studio</div>
-      <div style="margin-top:6px; opacity:0.6;">Six cities worldwide</div>
-    </div>
+  <div class="hero-meta" style="justify-content:center;">
     <div class="scroll-cue reveal delay-4">
       <span>Scroll</span>
       <span class="bar"></span>
-    </div>
-    <div class="col reveal delay-3" style="text-align:right;">
-      <div>02 — Pressed on vinyl</div>
-      <div style="margin-top:6px; opacity:0.6;">Bespoke artwork by Stuart Tolley</div>
     </div>
   </div>
 </section>
@@ -1241,7 +1268,7 @@
 <section class="concept" id="concept">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num reveal">I — The Story</span>
+      <span class="section-num reveal">I - The Story</span>
     </div>
     <p class="quote reveal">
       <span class="drop">E</span>very great experience<br/>
@@ -1250,14 +1277,14 @@
     <div class="concept-body">
       <p class="reveal delay-1">
         The Sound Atelier composes original music, written exclusively for your
-        occasion — a wedding, a client dinner, a brand activation. From the first
+        occasion - a wedding, a client dinner, a brand activation. From the first
         arrival to the final moment, every note is made to reflect the atmosphere
         you want to create.
       </p>
       <p class="reveal delay-2">
         A hand-picked selection is pressed onto custom-designed vinyl, complete
         with bespoke artwork. When the night ends, your guests leave with their
-        own copy — a memento of the experience and the music that made it
+        own copy - a memento of the experience and the music that made it
         unforgettable.
       </p>
     </div>
@@ -1279,14 +1306,14 @@
         <p style="font-size:17px; line-height:1.75; color:var(--ink-soft); max-width: 50ch;">
           As Sony Music roster producers with over 100,000 physical sales
           worldwide, our writers and producers collaborate with celebrated
-          artists across the globe — bringing world-class artistry into the
+          artists across the globe - bringing world-class artistry into the
           most personal of moments.
         </p>
         <p style="font-size:17px; line-height:1.75; color:var(--ink-soft); max-width: 50ch; margin-top: 24px;">
           The Sound Atelier offers the first <em>on-demand bespoke music
           service</em> for weddings, corporate events and brand activations:
           original music written for every chapter of your experience, paired
-          with a hand-pressed vinyl artefact designed to outlast the moment.
+          with pressed vinyls designed to outlast the moment.
         </p>
         <div class="bio-stats">
           <div class="stat">
@@ -1295,17 +1322,17 @@
           </div>
         </div>
         <div class="cert">
-          <svg class="cert-seal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Must.ai certification seal">
+          <svg class="cert-seal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MUSO certification seal">
             <circle cx="50" cy="50" r="47" fill="none" stroke="#B89968" stroke-width="1.4"/>
             <circle cx="50" cy="50" r="41" fill="none" stroke="#B89968" stroke-width="0.5" stroke-dasharray="0.6 3"/>
             <path d="M50 25 l3.3 7.2 7.9 .6 -6 5.2 1.9 7.7 -7 -4.2 -7 4.2 1.9 -7.7 -6 -5.2 7.9 -.6z" fill="#B89968"/>
-            <text x="50" y="62" text-anchor="middle" font-family="Georgia, serif" font-size="9" letter-spacing="1.5" fill="#5C1A1B" font-weight="700">MUST.AI</text>
+            <text x="50" y="62" text-anchor="middle" font-family="Georgia, serif" font-size="11" letter-spacing="1.5" fill="#5C1A1B" font-weight="700">MUSO</text>
             <text x="50" y="73" text-anchor="middle" font-family="Georgia, serif" font-size="5.5" letter-spacing="2" fill="#9a7b4f">CERTIFIED</text>
             <path d="M22 60 Q26 74 39 80" fill="none" stroke="#B89968" stroke-width="1"/>
             <path d="M78 60 Q74 74 61 80" fill="none" stroke="#B89968" stroke-width="1"/>
           </svg>
           <div class="cert-text">
-            <div class="cert-label">Must.ai Certified</div>
+            <div class="cert-label">MUSO Certified</div>
             <div class="cert-title">Top 10% of producers worldwide</div>
             <div class="cert-sub">Awarded to Gauthier &amp; Ste · 2026</div>
           </div>
@@ -1327,34 +1354,33 @@
   <div class="wrap">
     <div class="section-head">
       <h2 class="reveal">
-        Commissions, <em>in their<br/>own words.</em>
+        Three stories,<br/>
+        <em>pressed to vinyl.</em>
       </h2>
-      <span class="section-num reveal delay-1">II — Case Studies</span>
+      <span class="section-num reveal delay-1">II - Case Studies</span>
     </div>
 
     <!-- Case One -->
     <div class="case reveal">
       <div class="case-visual">
-        <div class="vinyl-mock">
-          <span class="mock-label">Vinyl Mockup<span class="mock-tag">Lake Como</span></span>
-        </div>
+        <img class="case-mock" src="images/cases/lake-como.jpg" alt="Bespoke vinyl and sleeve for the Lake Como welcome reception" />
       </div>
       <div class="case-content">
         <span class="case-num">Case One</span>
-        <h3>Lake Como · Three-Day Wedding</h3>
-        <div class="case-context">Destination wedding · An American couple</div>
+        <h3>Lake Como Three-Day Wedding</h3>
+        <div class="case-context">Newly engaged couple planning their wedding with a top destination wedding planner.</div>
         <div class="case-steps">
           <div class="case-step">
             <div class="step-label">The Brief</div>
-            <p>A three-day wedding on Lake Como for an American couple welcoming guests from around the world. The welcome reception needed a soundtrack that was elegant and romantic with a contemporary edge — effortless, full of life, making every guest feel instantly at ease and part of the celebration ahead.</p>
+            <p>A three-day wedding on Lake Como for an American couple who were welcoming friends and family from around the world. The music brief was to set the tone for the weekend during the welcome drinks reception - elegant &amp; romantic with a contemporary edge. The atmosphere is to be effortless and full of life, immediately making every guest feel at ease, welcomed, connected and excited for the celebrations ahead.</p>
           </div>
           <div class="case-step">
             <div class="step-label">The Sound</div>
-            <p>In our studio, we composed a bespoke soundtrack for the evening: deep house grooves layered with sweeping string arrangements, blending contemporary electronic rhythm with cinematic orchestration. Elegant, romantic and unmistakably modern.</p>
+            <p>In our studio, our writers and producers composed and produced a bespoke soundtrack designed exclusively for the occasion. Deep house grooves were layered with sweeping string arrangements, blending contemporary electronic rhythms with cinematic orchestration. The result was a sound that felt elegant, romantic and unmistakably modern, setting the perfect tone for the weekend ahead.</p>
           </div>
           <div class="case-step">
             <div class="step-label">The Keepsake</div>
-            <p>100 bespoke vinyl records in custom sleeves inspired by a Lake Como sunset, each with hand-set typography carrying the couple's names and wedding date. Presented to guests over breakfast the next morning — a crafted memento of the weekend's first evening.</p>
+            <p>100 bespoke vinyl records, each housed in a custom-designed sleeve inspired by the colours of a Lake Como sunset. Each record arrived with hand-set typography featuring the couple's names and wedding date. Presented to guests over breakfast the following morning, the soundtrack became a tangible memento of the first evening - not just a piece of music, but a beautifully crafted piece of art that captured the feeling of the weekend's unforgettable beginning.</p>
           </div>
         </div>
       </div>
@@ -1363,26 +1389,24 @@
     <!-- Case Two -->
     <div class="case case--reverse reveal">
       <div class="case-visual">
-        <div class="vinyl-mock">
-          <span class="mock-label">Vinyl Mockup<span class="mock-tag">The Thames</span></span>
-        </div>
+        <img class="case-mock" src="images/cases/thames.jpg" alt="Numbered matte-black vinyl for the client dinner on the Thames" />
       </div>
       <div class="case-content">
         <span class="case-num">Case Two</span>
-        <h3>Client Dinner on the Thames</h3>
-        <div class="case-context">Private client dinner · Wealth management · London</div>
+        <h3>Client Dinner Cruise</h3>
+        <div class="case-context">A wealth management firm hosting their most valued clients. Private dinner on the Thames, London.</div>
         <div class="case-steps">
           <div class="case-step">
             <div class="step-label">The Brief</div>
-            <p>A leading wealth management firm wanted to host its most valued clients for an evening unlike the traditional corporate dinner — contemporary, relaxed and culturally current, where conversation flowed and relationships deepened naturally.</p>
+            <p>A leading wealth management firm wanted to host its most valued clients for an evening that felt different from the traditional corporate dinner. The ambition was to create an atmosphere that was contemporary, relaxed and culturally current, where conversations unfolded naturally, relationships deepened organically, and guests left feeling part of something memorable rather than simply attending another dinner event.</p>
           </div>
           <div class="case-step">
             <div class="step-label">The Sound</div>
-            <p>We created music inspired by the warmth of Latin America: Afro-house grooves, nu-disco, Brazilian percussion and soulful electronic textures, evolving through the night. A soundtrack that lifted the room and turned a formal dinner into a vibrant social experience.</p>
+            <p>In our studio, our writers and producers created music inspired by the warmth and rhythm of Latin America. Contemporary Brazilian percussion, Afro-house grooves, nu-disco, and soulful electronic textures provided a sophisticated backdrop that gradually evolved throughout the evening. The result was a soundtrack that encouraged movement without demanding attention, lifting the energy of the room, sparking conversation and seamlessly transforming a formal dinner into a vibrant social experience.</p>
           </div>
           <div class="case-step">
             <div class="step-label">The Keepsake</div>
-            <p>150 numbered vinyl records in matte-black sleeves with a foil-embossed Thames motif and the firm's initials. Closer to a limited-edition art piece than corporate merchandise — an object made to be displayed, played and treasured long after the final course.</p>
+            <p>150 numbered vinyl records, housed in matte-black sleeves featuring a subtle foil-embossed Thames motif and the firm's initials. More akin to a limited-edition art piece than traditional corporate merchandise, each record became a lasting reminder of the evening - an object designed to be displayed, played and treasured long after the final course had been served.</p>
           </div>
         </div>
       </div>
@@ -1391,26 +1415,24 @@
     <!-- Case Three -->
     <div class="case reveal">
       <div class="case-visual">
-        <div class="vinyl-mock">
-          <span class="mock-label">Vinyl Mockup<span class="mock-tag">First Light</span></span>
-        </div>
+        <img class="case-mock" src="images/cases/immersive.jpg" alt="Collector's edition vinyl for the immersive fantasy game activation" />
       </div>
       <div class="case-content">
         <span class="case-num">Case Three</span>
         <h3>Immersive World-Building</h3>
-        <div class="case-context">Brand activation · Fantasy game launch</div>
+        <div class="case-context">A tech studio launching a fantasy video game after four years in development. Immersive brand activation.</div>
         <div class="case-steps">
           <div class="case-step">
             <div class="step-label">The Brief</div>
-            <p>A tech studio launching a fantasy game after four years in development. Guests weren't there to sample a product — they were there to step inside an entirely new world.</p>
+            <p>Bring the game's universe to life. Guests weren't there to sample a product; they were there to step inside an entirely new world.</p>
           </div>
           <div class="case-step">
             <div class="step-label">The Sound</div>
-            <p>Working alongside the game's concept artist and visual director, we composed a cinematic score that evolved through the activation — orchestral themes, otherworldly textures, and carefully timed tension and release that turned every space into part of the narrative.</p>
+            <p>Working alongside the game's concept artist and visual director, we composed a cinematic score that evolved throughout the activation. Orchestral themes, atmospheric textures, ancient otherworldly textures and moments of carefully timed tension and release transformed every space into part of the narrative.</p>
           </div>
           <div class="case-step">
             <div class="step-label">The Keepsake</div>
-            <p>500 limited-edition vinyl records featuring bespoke game artwork and a score composed exclusively for the activation. A collector's piece, not a promo item — a tangible piece of the universe before it officially came to life.</p>
+            <p>500 limited-edition vinyl records featuring bespoke game artwork and a bespoke score composed exclusively for the activation. A collector's piece rather than a promotional item, each record allowed guests to own a tangible piece of the universe before it officially came to life.</p>
           </div>
         </div>
       </div>
@@ -1426,14 +1448,14 @@
         <em>Discover.</em> Compose.<br/>
         Press.
       </h2>
-      <span class="section-num reveal delay-1">III — The Process</span>
+      <span class="section-num reveal delay-1">III - The Process</span>
     </div>
     <div class="process-grid">
       <div class="process-step reveal">
         <div class="num">Step 01</div>
         <h3><em>Discover</em></h3>
         <p>
-          We begin with a personal creative consultation — a conversation to
+          We begin with a personal creative consultation - a conversation to
           understand your story, mood, and aesthetic. Together we explore the
           atmosphere you want to create and the feeling you want your guests
           to remember.
@@ -1445,7 +1467,7 @@
         <p>
           Our producers craft a two-hour bespoke soundtrack. Each piece is
           written and mixed to reflect your style, your rhythm, and your
-          story — from welcome to last dance.
+          story - from welcome to last dance.
         </p>
       </div>
       <div class="process-step reveal delay-2">
@@ -1469,7 +1491,7 @@
         Created by <em>artists.</em><br/>
         Made for music lovers.
       </h2>
-      <span class="section-num reveal delay-1">IV — The Studio</span>
+      <span class="section-num reveal delay-1">IV - The Studio</span>
     </div>
     <div class="team-grid">
       <div class="member reveal">
@@ -1479,7 +1501,7 @@
         <div class="info">
           <div class="name">Lucy</div>
           <div class="role">Project Manager</div>
-          <p class="bio">Leads every commission from first conversation to final pressing — making sure every detail is felt before it's heard.</p>
+          <p class="bio">Leads every commission from first conversation to final pressing - making sure every detail is felt before it's heard.</p>
         </div>
       </div>
       <div class="member reveal delay-1">
@@ -1509,7 +1531,7 @@
         <div class="info">
           <div class="name">Stuart</div>
           <div class="role">Lead Designer</div>
-          <p class="bio">An award-winning art director shaping every sleeve, label and insert — turning sound into an object you can hold.</p>
+          <p class="bio">An award-winning art director shaping every sleeve, label and insert - turning sound into an object you can hold.</p>
         </div>
       </div>
     </div>
@@ -1556,22 +1578,27 @@
 <section class="commission" id="commission">
   <div class="wrap-narrow">
     <h2 class="reveal">
-      Commission <em>your</em><br/>
-      soundtrack.
+      Let's start a<br/>
+      <em>conversation.</em>
     </h2>
     <p class="sub reveal delay-1">
-      Tell us about your day or your brand moment. We'll arrange a creative
-      consultation to understand the story you want to tell — in sound and
-      in design.
+      Tell us about your event or your brand moment, and we'll arrange a
+      creative consultation to understand the story you want to tell - in
+      sound and in design.
     </p>
     <div class="cta-row reveal delay-2">
-      <a href="mailto:hello@thesoundatelier.com?subject=New%20Commission%20Enquiry" class="btn-primary">
-        Begin a commission →
-      </a>
-      <a href="mailto:hello@thesoundatelier.com?subject=Listening%20Sample%20Request" class="btn-secondary">
-        Request a listening sample
+      <button type="button" class="btn-primary" id="copyEmailBtn" data-email="lucy@houseoflemon.co.uk" onclick="copyEmail(this)">
+        Copy email address
+      </button>
+      <a href="https://wa.me/44775349638" target="_blank" rel="noopener" class="btn-secondary">
+        Message on WhatsApp
       </a>
     </div>
+    <p class="contact-line reveal delay-3">
+      <a href="mailto:lucy@houseoflemon.co.uk">lucy@houseoflemon.co.uk</a>
+      <span class="sep">·</span>
+      <a href="tel:+44775349638">+44 7753 49638</a>
+    </p>
     <p class="availability reveal delay-3">
       Limited commissions accepted each season. Minimum three months' notice.
     </p>
@@ -1583,7 +1610,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a href="#top" class="brand">The Sound <span class="amp" style="color:var(--gold);">&</span> Atelier</a>
+        <a href="#top" class="brand">The Sound Atelier</a>
         <p class="tag">Bespoke soundtracks. Timeless keepsakes. Made in London for the world.</p>
       </div>
       <div>
@@ -1629,6 +1656,35 @@
 
   // year
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // copy email to clipboard
+  function copyEmail(btn) {
+    var email = btn.getAttribute('data-email');
+    var restore = function () {
+      var original = 'Copy email address';
+      btn.textContent = 'Email copied ✓';
+      btn.classList.add('copied');
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove('copied');
+      }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(restore).catch(function () {
+        window.location.href = 'mailto:' + email;
+      });
+    } else {
+      // legacy fallback
+      var ta = document.createElement('textarea');
+      ta.value = email;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); restore(); }
+      catch (e) { window.location.href = 'mailto:' + email; }
+      document.body.removeChild(ta);
+    }
+  }
+  window.copyEmail = copyEmail;
 
   // reveal-on-scroll
   const reveals = document.querySelectorAll('.reveal');
